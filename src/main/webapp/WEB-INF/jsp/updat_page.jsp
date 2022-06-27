@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>      
 <!DOCTYPE html>
 <html>
 
@@ -77,9 +78,7 @@
             background: linear-gradient(-45deg, white 30%, rgb(216, 183, 226) 0%);
         }
         
-        #section2 {
-            background: linear-gradient(-45deg, white 30%, rgb(164, 209, 164) 0%);
-        }
+        
     </style>
     <script>
         function validateUserName() {
@@ -165,73 +164,55 @@
 <body>
     <ul>
         <li><a href="#section1">Registration</a></li>
-        <li><a href="#section2">Login</a></li>
+        
 
     </ul>
 
     <div class="content">
         <section id="section1">
             <div class="container">
-                <form action="savejnv" method="post">
+                <form action="updateData" method="post">
                     <div class="form-group">
+                    
+                    ID
+                    <input type="number" name="id" class="form-control">
+                    </div>
+                    <div>
                         UserName
-                        <input type="text" name="username" onkeyup="validateUserName()" id="username" class="form-control" required>
+                        <input type="text" name="username" onkeyup="validateUserName()"value="${jnv.id}" id="username" class="form-control" required>
                         <small id="usernameError"></small>
                     </div>
 
                     <div>
                         password
-                        <input type="text" name="password" onkeyup="validatePassword()" id="password" class="form-control" required>
+                        <input type="text" name="password" onkeyup="validatePassword()"  value="${jnv.password}" id="password" class="form-control" required>
                         <small id="passwordError"></small>
                         <span onclick="showPassword()">showPassword</span>
                     </div>
                     <div>
                         Mobile
-                        <input type="number" name="mobile" onkeyup="validateMobile()" id="mobile" class="form-control" required/>
+                        <input type="number" name="mobile" onkeyup="validateMobile()" value="${jnv.mobile}" id="mobile" class="form-control" required/>
                         <small id="mobileError"></small>
                     </div>
                     <div>
                         Email
-                        <input type="email" name="email" class="form-control" required>
+                        <input type="email" name="email" value="${jnv.email}" class="form-control" required>
                     </div>
                     <div>
                         City
-                        <input type="text" name="city" class="form-control" required>
+                        <input type="text" name="city" value="${jnv.city}" class="form-control" required>
                     </div>
 
                     <br>
                     <div class="form-group">
-                        <button onclick="validateData()" type="submit" class="btn btn-primary">Register</button>
+                        <button onclick="validateData()" type="submit" class="btn btn-primary">Update</button>
 
                     </div>
                 </form>
-                <a href="listall"><button  type="submit" class="btn btn-primary">Update</button></a>
             </div>
+			${msg}
+       </section>
 
-        </section>
-        <section id="section2">
-            <div class="container">
-                <form action="jnvlogin" object="jnv" method="post">
-                    <div class="form-group">
-                        <label>Username</label>
-                        <input onkeyup="validateUserName()" type="text" id="username" class="form-control" />
-                        <small id="usernameError"></small>
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input onkeyup="validatePassword()" type="password" id="password" class="form-control" />
-                        <small id="passwordError"></small>
-                        <span onclick="showPassword()">Show password</span>
-
-                    </div>
-                    <div class="form-group">
-                        <button onclick="return validateData()" type="submit" class="btn btn-primary">Login</button>
-                    </div>
-                </form>
-                ${msg}
-            </div>
-        </section>
-			
     </div>
 </body>
 

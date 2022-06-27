@@ -9,5 +9,7 @@ import com.practice.registrationLogin.entity.Jvnregistration;
 @Repository
 public interface JvnRepository extends JpaRepository<Jvnregistration, Long> {
 	
-	Jvnregistration findByUsernameAndPassword(String username, String password);
+//	Jvnregistration findByUsernameAndPassword(String username, String password);
+//
+//	void findAllById(long id);
 }

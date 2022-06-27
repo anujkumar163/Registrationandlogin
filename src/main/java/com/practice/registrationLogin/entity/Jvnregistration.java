@@ -54,6 +54,10 @@ public class Jvnregistration {
 	public void setCity(String city) {
 		this.city = city;
 	}
+	public Jvnregistration get() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	
